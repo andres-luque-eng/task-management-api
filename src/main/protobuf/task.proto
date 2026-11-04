@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option java_package = "io.github.aluque.taskmanagement.grpc";
+
+service TaskService {
+  rpc GetTask (GetTaskRequest) returns (Task) {}
+  rpc CreateTask (CreateTaskRequest) returns (Task) {}
+}
+
+message GetTaskRequest {
+  string task_id = 1;
+}
+
+message CreateTaskRequest {
+  string title = 1;
+  string description = 2;
+}
+
+message Task {
+  string id = 1;
+  string title = 2;
+  string description = 3;
+  string status = 4;
+}
